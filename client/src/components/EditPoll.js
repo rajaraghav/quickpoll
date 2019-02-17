@@ -27,6 +27,11 @@ class EditPoll extends Component {
       return ({ poll: nextProps.poll }) // <- this is setState equivalent
     }
   }
+  componentDidUpdate(prevprops, prevState) {
+    if (prevprops.poll !== this.props.poll) {
+      this.setState({ poll: this.props.poll })
+    }
+  }
   showModal = () => {
     this.setState({
       visible: true
